@@ -17,7 +17,8 @@
   },
   "scripts": {
     "dev": "nodemon --watch src src/index.ts",
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "start": "node build/index.js"
   },
   "keywords": [],
   "author": "",
