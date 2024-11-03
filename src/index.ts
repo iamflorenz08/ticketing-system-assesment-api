@@ -15,6 +15,9 @@ fastify
     .register(fastifyCors, {
         origin: [FE_URL]
     })
+    .get('/', async (request, reply) => {
+        return reply.status(200).send("Welcome to TAS Api!")
+    })
     .register(TicketRoute, { prefix: '/api/v1/tickets' })
 
 fastify.listen({ port, host }, (err, address) => {
