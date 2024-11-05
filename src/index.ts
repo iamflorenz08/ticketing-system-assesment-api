@@ -3,6 +3,7 @@ import Fastify from 'fastify'
 import mongoose from 'mongoose'
 import { TicketRoute } from './routes/ticket-route'
 import fastifyCors from '@fastify/cors'
+import { AuthRoute } from './routes/auth-route'
 const fastify = Fastify()
 const port = Number(process.env.PORT) || 5001
 const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
@@ -19,6 +20,7 @@ fastify
         return reply.status(200).send("Welcome to TAS Api!")
     })
     .register(TicketRoute, { prefix: '/api/v1/tickets' })
+    .register(AuthRoute, { prefix: '/api/v1/auth' })
 
 fastify.listen({ port, host }, (err, address) => {
     if (err) {
